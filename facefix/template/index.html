@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Your Flask App</h1>
+    </header>
+
+    <main>
+        <section id="upload-section">
+            <h2>Upload Video</h2>
+            <form id="upload-form" enctype="multipart/form-data" action="/process_video" method="POST">
+                <input type="file" name="video" accept="video/*" required>
+                <button type="submit">Process</button>
+            </form>
+        </section>
+
+        <section id="output-section" style="display:none;">
+            <h2>Processed Video</h2>
+            <a id="download-link" href="#" download>Download Processed Video</a>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
